@@ -59,8 +59,9 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
               : null);
     } catch (e) {
       String msg = 'Sign up failed.';
-      if (e.toString().contains('email-already-in-use'))
+      if (e.toString().contains('email-already-in-use')) {
         msg = 'This email is already registered.';
+      }
       if (e.toString().contains('weak-password')) msg = 'Password is too weak.';
       setState(() {
         _error = msg;

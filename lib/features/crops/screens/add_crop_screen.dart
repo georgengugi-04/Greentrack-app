@@ -332,19 +332,19 @@ class _BasicsStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          _FieldLabel('Crop Name', required: true),
+          const _FieldLabel('Crop Name', required: true),
           TextField(
             controller: nameCtrl,
             decoration: const InputDecoration(hintText: 'e.g. Cherry Tomatoes'),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Variety'),
+          const _FieldLabel('Variety'),
           TextField(
             controller: varietyCtrl,
             decoration: const InputDecoration(hintText: 'e.g. Sweet Million'),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Category'),
+          const _FieldLabel('Category'),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
@@ -373,7 +373,7 @@ class _BasicsStep extends StatelessWidget {
             }).toList(),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Quantity Planted'),
+          const _FieldLabel('Quantity Planted'),
           TextField(
             controller: qtyCtrl,
             keyboardType: TextInputType.number,
@@ -516,7 +516,7 @@ class _ScheduleStep extends StatelessWidget {
           Text('When did you plant and when do you expect to harvest?',
               style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(height: 20),
-          _FieldLabel('Planting Date', required: true),
+          const _FieldLabel('Planting Date', required: true),
           GestureDetector(
             onTap: () => _pickDate(context, plantingDate, onPlantingChanged),
             child: Container(
@@ -539,7 +539,7 @@ class _ScheduleStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Expected Harvest Date'),
+          const _FieldLabel('Expected Harvest Date'),
           GestureDetector(
             onTap: () => _pickDate(context, harvestDate, onHarvestChanged),
             child: Container(
@@ -562,7 +562,7 @@ class _ScheduleStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Watering Frequency'),
+          const _FieldLabel('Watering Frequency'),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
@@ -590,7 +590,7 @@ class _ScheduleStep extends StatelessWidget {
             }).toList(),
           ),
           const SizedBox(height: 16),
-          _FieldLabel('Notes (Optional)'),
+          const _FieldLabel('Notes (Optional)'),
           TextField(
             controller: notesCtrl,
             maxLines: 3,
@@ -651,7 +651,7 @@ class _ReviewStep extends StatelessWidget {
                   width: 64,
                   height: 64,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: Colors.white.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   child: Center(
@@ -663,7 +663,7 @@ class _ReviewStep extends StatelessWidget {
                 if (variety.isNotEmpty)
                   Text(variety,
                       style: AppTextStyles.body(12,
-                          color: Colors.white.withOpacity(0.7))),
+                          color: Colors.white.withValues(alpha: 0.7))),
               ],
             ),
           ),

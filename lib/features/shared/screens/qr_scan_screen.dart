@@ -17,7 +17,7 @@ class QRScanScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.qr_code_scanner, size: 96, color: AppColors.leaf),
+            const Icon(Icons.qr_code_scanner, size: 96, color: AppColors.leaf),
             const SizedBox(height: AppSpacing.lg),
             Text('Point camera at a GreenTrack QR code', style: AppTextStyles.h2),
             const SizedBox(height: AppSpacing.sm),

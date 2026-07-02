@@ -57,9 +57,9 @@ class _FarmerPestDiagnosisScreenState extends State<FarmerPestDiagnosisScreen> {
           Container(
             padding: const EdgeInsets.all(AppSpacing.md),
             decoration: BoxDecoration(
-              color: AppColors.error.withOpacity(0.07),
+              color: AppColors.error.withValues(alpha: 0.07),
               borderRadius: BorderRadius.circular(AppRadius.md),
-              border: Border.all(color: AppColors.error.withOpacity(0.3)),
+              border: Border.all(color: AppColors.error.withValues(alpha: 0.3)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

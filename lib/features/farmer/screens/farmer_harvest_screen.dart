@@ -86,7 +86,7 @@ class _FarmerHarvestScreenState extends State<FarmerHarvestScreen> {
           Container(
             padding: const EdgeInsets.all(AppSpacing.md),
             decoration: BoxDecoration(
-              color: AppColors.amber.withOpacity(0.1),
+              color: AppColors.amber.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(AppRadius.md),
             ),
             child: Row(
@@ -122,7 +122,7 @@ class _FarmerHarvestScreenState extends State<FarmerHarvestScreen> {
               return ChoiceChip(
                 label: Text(d.name),
                 selected: selected,
-                selectedColor: AppColors.amber.withOpacity(0.2),
+                selectedColor: AppColors.amber.withValues(alpha: 0.2),
                 onSelected: (_) => setState(() => _destination = d),
               );
             }).toList(),

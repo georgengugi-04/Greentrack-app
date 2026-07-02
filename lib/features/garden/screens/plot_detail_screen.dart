@@ -54,7 +54,7 @@ class PlotDetailScreen extends StatelessWidget {
                                   color: Colors.white)),
                           Text(plot.description,
                               style: AppTextStyles.body(12,
-                                  color: Colors.white.withOpacity(0.7)),
+                                  color: Colors.white.withValues(alpha: 0.7)),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                         ],

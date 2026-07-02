@@ -14,7 +14,7 @@ class _FarmerPlanScreenState extends State<FarmerPlanScreen> {
   final _formKey = GlobalKey<FormState>();
   String _cropName = '';
   FarmingMethod _method = FarmingMethod.organic;
-  SunExposure _sun = SunExposure.fullSun;
+  final SunExposure _sun = SunExposure.fullSun;
   bool _organic = false;
 
   final List<String> _steps = ['Basics', 'Location', 'Schedule', 'Review'];
@@ -234,7 +234,7 @@ class _LocationStep extends StatelessWidget {
         Container(
           height: 160,
           decoration: BoxDecoration(
-            color: AppColors.mint.withOpacity(0.2),
+            color: AppColors.mint.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(AppRadius.md),
             border: Border.all(color: AppColors.border),
           ),
@@ -339,7 +339,7 @@ class _ReviewStep extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(AppSpacing.sm),
           decoration: BoxDecoration(
-            color: AppColors.mint.withOpacity(0.15),
+            color: AppColors.mint.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),
           child: Text(

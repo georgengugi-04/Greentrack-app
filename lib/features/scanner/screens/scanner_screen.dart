@@ -192,13 +192,13 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
     const s = 28.0;
     const t = 3.0;
     return [
-      Positioned(
+      const Positioned(
           top: 0, left: 0, child: _Corner(s, t, c, top: true, left: true)),
-      Positioned(
+      const Positioned(
           top: 0, right: 0, child: _Corner(s, t, c, top: true, left: false)),
-      Positioned(
+      const Positioned(
           bottom: 0, left: 0, child: _Corner(s, t, c, top: false, left: true)),
-      Positioned(
+      const Positioned(
           bottom: 0,
           right: 0,
           child: _Corner(s, t, c, top: false, left: false)),
@@ -287,12 +287,12 @@ class _CornerPainter extends CustomPainter {
       canvas.drawLine(Offset(0, r), Offset(r, 0), p);
       canvas.drawLine(Offset(r, 0), Offset(size.width, 0), p);
     } else if (top && !left) {
-      canvas.drawLine(Offset(0, 0), Offset(size.width - r, 0), p);
+      canvas.drawLine(const Offset(0, 0), Offset(size.width - r, 0), p);
       canvas.drawLine(Offset(size.width - r, 0), Offset(size.width, r), p);
       canvas.drawLine(
           Offset(size.width, r), Offset(size.width, size.height), p);
     } else if (!top && left) {
-      canvas.drawLine(Offset(0, 0), Offset(0, size.height - r), p);
+      canvas.drawLine(const Offset(0, 0), Offset(0, size.height - r), p);
       canvas.drawLine(Offset(0, size.height - r), Offset(r, size.height), p);
       canvas.drawLine(
           Offset(r, size.height), Offset(size.width, size.height), p);
@@ -404,8 +404,8 @@ class _TraceView extends StatelessWidget {
                             horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                             color: result.phiCompliant
-                                ? Colors.green.withOpacity(0.2)
-                                : Colors.red.withOpacity(0.2),
+                                ? Colors.green.withValues(alpha: 0.2)
+                                : Colors.red.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(20)),
                         child: Text(
                             result.phiCompliant
@@ -703,7 +703,7 @@ class _NutriBadge extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
+            color: color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(value, style: AppTextStyles.mono(13, color: color)),

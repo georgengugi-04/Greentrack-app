@@ -240,21 +240,21 @@ class _WeatherBar extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.15),
+                          color: Colors.white.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(data.condition,
                             style: AppTextStyles.body(
                               11,
                               weight: FontWeight.w600,
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                             )),
                       ),
                     ],
                   ),
                   Text('📍 Quezon City Garden Zone',
                       style: AppTextStyles.body(11,
-                          color: Colors.white.withOpacity(0.6))),
+                          color: Colors.white.withValues(alpha: 0.6))),
                 ],
               ),
             ],
@@ -279,9 +279,9 @@ class _WeatherBar extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.white.withOpacity(0.15)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.15)),
             ),
             child: Row(
               children: [
@@ -292,7 +292,7 @@ class _WeatherBar extends StatelessWidget {
                     data.tip,
                     style: AppTextStyles.body(
                       12,
-                      color: Colors.white.withOpacity(0.85),
+                      color: Colors.white.withValues(alpha: 0.85),
                     ),
                   ),
                 ),
@@ -325,7 +325,7 @@ class _WeatherStat extends StatelessWidget {
           Text(label,
               style: AppTextStyles.body(
                 9,
-                color: Colors.white.withOpacity(0.55),
+                color: Colors.white.withValues(alpha: 0.55),
               )),
         ],
       ),
@@ -338,7 +338,7 @@ class _WeatherDivider extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         width: 1,
         height: 36,
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withValues(alpha: 0.15),
       );
 }
 
@@ -381,7 +381,7 @@ class _KpiGrid extends StatelessWidget {
         Row(
           children: [
             Expanded(
-                child: _KpiCard(
+                child: const _KpiCard(
               emoji: '🌾',
               label: 'Near Harvest',
               value: '5',
@@ -442,7 +442,7 @@ class _KpiCard extends StatelessWidget {
                 width: 36,
                 height: 36,
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
+                  color: color.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(child: Text(emoji)),
@@ -532,10 +532,10 @@ class _HarvestChartState extends State<_HarvestChart> {
           const SizedBox(height: 20),
 
           // Legend
-          Row(
+          const Row(
             children: [
               _ChartLegend(AppColors.leaf, '2024'),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               _ChartLegend(AppColors.amber, '2023'),
             ],
           ),
@@ -560,7 +560,7 @@ class _HarvestChartState extends State<_HarvestChart> {
                             ),
                             BarChartRodData(
                               toY: data2023[i],
-                              color: AppColors.amber.withOpacity(0.6),
+                              color: AppColors.amber.withValues(alpha: 0.6),
                               width: 8,
                               borderRadius: BorderRadius.circular(4),
                             ),
@@ -708,7 +708,7 @@ class _CropCard extends StatelessWidget {
             color: crop.status == CropStatus.concern
                 ? AppColors.red.withOpacity(0.4)
                 : crop.status == CropStatus.readyToHarvest
-                    ? AppColors.amber.withOpacity(0.4)
+                    ? AppColors.amber.withValues(alpha: 0.4)
                     : AppColors.border,
           ),
           boxShadow: [AppShadows.subtle],
@@ -1072,8 +1072,8 @@ class _SeasonProgressCard extends StatelessWidget {
 
           _StatRow('🌱', 'Planted', '${stats.totalCrops} crops'),
           _StatRow('🌾', 'Harvests', '${stats.totalHarvestCount} events'),
-          _StatRow('🏆', 'Top Crop', 'Tomato'),
-          _StatRow('♻️', 'Waste Saved', '~3.2 kg'),
+          const _StatRow('🏆', 'Top Crop', 'Tomato'),
+          const _StatRow('♻️', 'Waste Saved', '~3.2 kg'),
         ],
       ),
     );

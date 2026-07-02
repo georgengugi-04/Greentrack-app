@@ -113,14 +113,14 @@ class _CropDetailScreenState extends State<CropDetailScreen>
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
+                        color: Colors.white.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         '${crop.category.emoji} ${crop.category.label}',
                         style: AppTextStyles.body(11,
                             weight: FontWeight.w600,
-                            color: Colors.white.withOpacity(0.9)),
+                            color: Colors.white.withValues(alpha: 0.9)),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -137,7 +137,7 @@ class _CropDetailScreenState extends State<CropDetailScreen>
                                       color: Colors.white)),
                               Text('${crop.variety} · ${plot.name}',
                                   style: AppTextStyles.body(13,
-                                      color: Colors.white.withOpacity(0.7))),
+                                      color: Colors.white.withValues(alpha: 0.7))),
                             ],
                           ),
                         ),
@@ -669,7 +669,7 @@ class _GrowthTab extends StatelessWidget {
                           dotData: const FlDotData(show: true),
                           belowBarData: BarAreaData(
                               show: true,
-                              color: AppColors.leaf.withOpacity(0.1)),
+                              color: AppColors.leaf.withValues(alpha: 0.1)),
                         ),
                       ],
                     ),
@@ -738,7 +738,7 @@ class _GrowthRecordTile extends StatelessWidget {
               _GrowthMetric('🍃', '${record.leafCount} leaves'),
               if (record.floweringObserved) ...[
                 const SizedBox(width: 16),
-                _GrowthMetric('🌸', 'Flowering'),
+                const _GrowthMetric('🌸', 'Flowering'),
               ],
             ],
           ),

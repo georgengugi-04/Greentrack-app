@@ -211,7 +211,7 @@ class PestDiagnosis {
 
   /// Date after which harvest is safe, or null if untreated.
   DateTime? get phiClearDate =>
-      treatedAt == null ? null : treatedAt!.add(Duration(days: phiDays));
+      treatedAt?.add(Duration(days: phiDays));
 
   bool get isHarvestLocked =>
       phiClearDate != null && DateTime.now().isBefore(phiClearDate!);
@@ -305,7 +305,7 @@ class TransportRecord {
   });
 
   Duration? get transitDuration =>
-      arrivedAt == null ? null : arrivedAt!.difference(departedAt);
+      arrivedAt?.difference(departedAt);
 }
 
 // ---------------------------------------------------------------------------

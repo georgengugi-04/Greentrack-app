@@ -4,7 +4,6 @@ import 'package:badges/badges.dart' as badges;
 import '../../../core/theme/app_theme.dart';
 import '../screens/dashboard_screen.dart';
 import '../../crops/screens/crops_screen.dart';
-import '../../garden/screens/garden_screen.dart';
 import '../../harvest/screens/harvest_screen.dart';
 import '../../profile/screens/profile_screen.dart';
 import '../widgets/quick_action_sheet.dart';
@@ -63,24 +62,24 @@ class _MainShellState extends State<MainShell> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      _NavItem(
+      const _NavItem(
           icon: Icons.home_outlined,
           activeIcon: Icons.home_rounded,
           label: 'Home'),
-      _NavItem(
+      const _NavItem(
           icon: Icons.eco_outlined,
           activeIcon: Icons.eco_rounded,
           label: 'Crops'),
-      _NavItem(
+      const _NavItem(
           icon: Icons.add_circle_outline,
           activeIcon: Icons.add_circle,
           label: 'Log',
           isCenter: true),
-      _NavItem(
+      const _NavItem(
           icon: Icons.storefront_outlined,
           activeIcon: Icons.storefront_rounded,
           label: 'Harvest'),
-      _NavItem(
+      const _NavItem(
           icon: Icons.person_outline_rounded,
           activeIcon: Icons.person_rounded,
           label: 'Profile'),
@@ -89,11 +88,11 @@ class _MainShellState extends State<MainShell> with TickerProviderStateMixin {
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex > 2 ? _currentIndex - 1 : _currentIndex,
-        children: [
-          const DashboardScreen(),
-          const CropsScreen(),
-          const HarvestScreen(),
-          const ProfileScreen(),
+        children: const [
+          DashboardScreen(),
+          CropsScreen(),
+          HarvestScreen(),
+          ProfileScreen(),
         ],
       ),
       extendBody: true,

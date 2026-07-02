@@ -130,9 +130,9 @@ class _ActionCard extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: action.color.withOpacity(0.06),
+          color: action.color.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: action.color.withOpacity(0.15)),
+          border: Border.all(color: action.color.withValues(alpha: 0.15)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -141,7 +141,7 @@ class _ActionCard extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: action.color.withOpacity(0.1),
+                color: action.color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Center(

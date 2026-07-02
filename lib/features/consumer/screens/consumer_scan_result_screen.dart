@@ -178,7 +178,7 @@ class _VerifiedBanner extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.md, vertical: AppSpacing.sm),
       decoration: BoxDecoration(
-        color: AppColors.leaf.withOpacity(0.12),
+        color: AppColors.leaf.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(AppRadius.sm),
       ),
       child: Row(
@@ -332,7 +332,7 @@ class _TimelineTile extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 14,
-              backgroundColor: event.color.withOpacity(0.15),
+              backgroundColor: event.color.withValues(alpha: 0.15),
               child: Icon(event.icon, size: 14, color: event.color),
             ),
             if (!last)

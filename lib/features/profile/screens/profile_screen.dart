@@ -57,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
                               AppTextStyles.display(20, color: Colors.white)),
                       Text('📍 ${user.location}',
                           style: AppTextStyles.body(11,
-                              color: Colors.white.withOpacity(0.7))),
+                              color: Colors.white.withValues(alpha: 0.7))),
                     ],
                   ),
                 ),
@@ -96,7 +96,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 90,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      children: [
+                      children: const [
                         _Badge('🏆', 'Top Grower', true),
                         _Badge('🌾', '50kg Club', true),
                         _Badge('💧', 'Water Wise', true),
@@ -203,7 +203,7 @@ class _Badge extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
             color:
-                unlocked ? AppColors.amber.withOpacity(0.4) : AppColors.border),
+                unlocked ? AppColors.amber.withValues(alpha: 0.4) : AppColors.border),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

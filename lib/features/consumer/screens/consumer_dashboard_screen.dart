@@ -37,9 +37,9 @@ class ConsumerDashboardScreen extends ConsumerWidget {
                 color: AppColors.consumerAccent,
                 borderRadius: BorderRadius.circular(AppRadius.lg),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.qr_code_scanner, color: Colors.white, size: 48),
                   SizedBox(height: AppSpacing.sm),
                   Text('Scan a QR code',

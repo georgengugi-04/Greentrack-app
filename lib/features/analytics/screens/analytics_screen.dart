@@ -66,12 +66,12 @@ class _OverviewTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Big stat cards
-          Row(
+          const Row(
             children: [
               Expanded(
                   child: _BigStat('48.6kg', 'Total Yield',
                       '↑18% vs last season', AppColors.leaf)),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Expanded(
                   child: _BigStat('₱2,840', 'Est. Value', '↑12% vs last season',
                       AppColors.amber)),
@@ -132,7 +132,7 @@ class _OverviewTab extends StatelessWidget {
                   children: [
                     _Legend(AppColors.red, 'Tomato'),
                     const SizedBox(width: 12),
-                    _Legend(AppColors.leaf, 'Basil'),
+                    const _Legend(AppColors.leaf, 'Basil'),
                     const SizedBox(width: 12),
                     _Legend(AppColors.blue, 'Lettuce'),
                   ],
@@ -255,7 +255,7 @@ class _BigStat extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: [color, color.withOpacity(0.7)],
+            colors: [color, color.withValues(alpha: 0.7)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight),
         borderRadius: BorderRadius.circular(18),
@@ -266,12 +266,12 @@ class _BigStat extends StatelessWidget {
           Text(value, style: AppTextStyles.display(24, color: Colors.white)),
           Text(label,
               style:
-                  AppTextStyles.body(11, color: Colors.white.withOpacity(0.8))),
+                  AppTextStyles.body(11, color: Colors.white.withValues(alpha: 0.8))),
           const SizedBox(height: 8),
           Text(trend,
               style: AppTextStyles.body(10,
                   weight: FontWeight.w600,
-                  color: Colors.white.withOpacity(0.9))),
+                  color: Colors.white.withValues(alpha: 0.9))),
         ],
       ),
     );
@@ -583,7 +583,7 @@ class _ResourceCard extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10)),
             child: Center(
                 child: Text(emoji, style: const TextStyle(fontSize: 16))),

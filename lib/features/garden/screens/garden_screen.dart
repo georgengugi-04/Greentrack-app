@@ -131,7 +131,7 @@ class _PlotCard extends StatelessWidget {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.15),
+                      color: Colors.white.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: Center(
@@ -148,7 +148,7 @@ class _PlotCard extends StatelessWidget {
                                 AppTextStyles.display(17, color: Colors.white)),
                         Text('📐 ${plot.sizeLabel}',
                             style: AppTextStyles.body(11,
-                                color: Colors.white.withOpacity(0.7))),
+                                color: Colors.white.withValues(alpha: 0.7))),
                       ],
                     ),
                   ),
@@ -157,7 +157,7 @@ class _PlotCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Text('⚠️', style: TextStyle(fontSize: 12)),

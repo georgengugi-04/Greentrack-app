@@ -186,7 +186,7 @@ class _PestScreenState extends ConsumerState<PestScreen> {
                   style: Theme.of(context).textTheme.labelMedium),
               const SizedBox(height: 8),
               DropdownButtonFormField<CropBatch>(
-                  value: _selectedBatch,
+                  initialValue: _selectedBatch,
                   decoration: const InputDecoration(),
                   hint: const Text('Select batch'),
                   items: batches

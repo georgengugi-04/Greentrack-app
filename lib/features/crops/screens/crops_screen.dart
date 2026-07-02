@@ -125,7 +125,7 @@ class _CropsScreenState extends State<CropsScreen>
                   Tab(
                       text:
                           '⚠️ Attention (${_byStatus(CropStatus.concern).length})'),
-                  Tab(text: '✅ Done'),
+                  const Tab(text: '✅ Done'),
                 ],
               ),
             ],
@@ -251,7 +251,7 @@ class _CropList extends StatelessWidget {
             children: [
               SlidableAction(
                 onPressed: (_) {},
-                backgroundColor: AppColors.amber.withOpacity(0.1),
+                backgroundColor: AppColors.amber.withValues(alpha: 0.1),
                 foregroundColor: AppColors.amber,
                 icon: Icons.eco_outlined,
                 label: 'Harvest',
@@ -296,7 +296,7 @@ class _CropListTile extends StatelessWidget {
             color: crop.status == CropStatus.concern
                 ? AppColors.red.withOpacity(0.3)
                 : crop.status == CropStatus.readyToHarvest
-                    ? AppColors.amber.withOpacity(0.3)
+                    ? AppColors.amber.withValues(alpha: 0.3)
                     : AppColors.border,
           ),
           boxShadow: [AppShadows.subtle],

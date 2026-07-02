@@ -43,8 +43,7 @@ class FarmerDashboard extends ConsumerWidget {
                     const SizedBox(height: 12),
                     _StatusRail(
                       activeCount: (batchesAsync.valueOrNull ?? [])
-                          .where((batch) =>
-                              batch.status != CropBatchStatus.delivered)
+                          .where((batch) => batch.status != CropBatchStatus.delivered)
                           .length,
                       phiCount: phiLocked.length,
                       readyCount: readyNow.length,
@@ -85,34 +84,7 @@ class FarmerDashboard extends ConsumerWidget {
                       onTap: () {},
                     ),
                     const SizedBox(height: 12),
-                    _ActionGrid(
-                      actions: [
-                        _DashboardAction(
-                          icon: Icons.add_location_alt_outlined,
-                          title: 'New Batch',
-                          subtitle: 'Crop, method, GPS plot',
-                          route: '/farmer/batch/new',
-                        ),
-                        _DashboardAction(
-                          icon: Icons.water_drop_outlined,
-                          title: 'Irrigation',
-                          subtitle: 'Water source and timing',
-                          route: '/farmer/irrigate',
-                        ),
-                        _DashboardAction(
-                          icon: Icons.bug_report_outlined,
-                          title: 'Pest Check',
-                          subtitle: 'Photo diagnosis and PHI',
-                          route: '/farmer/pest',
-                        ),
-                        _DashboardAction(
-                          icon: Icons.qr_code_2_outlined,
-                          title: 'Harvest QR',
-                          subtitle: 'Weights and labels',
-                          route: '/farmer/harvest',
-                        ),
-                      ],
-                    ),
+                    _ActionGrid(),
                     const SizedBox(height: 24),
                     _SectionHeader(
                       title: 'Live Batches',
@@ -145,8 +117,7 @@ class FarmerDashboard extends ConsumerWidget {
                 ),
                 data: (batches) {
                   final active = batches
-                      .where(
-                          (batch) => batch.status != CropBatchStatus.delivered)
+                      .where((batch) => batch.status != CropBatchStatus.delivered)
                       .take(5)
                       .toList();
                   if (active.isEmpty) {
@@ -170,8 +141,7 @@ class FarmerDashboard extends ConsumerWidget {
         icon: const Icon(Icons.add_rounded),
         label: Text(
           'Start Batch',
-          style: AppTextStyles.sans(14,
-              color: Colors.white, weight: FontWeight.w800),
+          style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
         ),
       ),
     );
@@ -192,8 +162,7 @@ class _TopBar extends StatelessWidget {
             children: [
               Text(
                 'GreenTrack',
-                style: AppTextStyles.sans(13,
-                    color: AppColors.sprout, weight: FontWeight.w800),
+                style: AppTextStyles.sans(13, color: AppColors.sprout, weight: FontWeight.w800),
               ),
               const SizedBox(height: 4),
               Text(
@@ -246,7 +215,7 @@ class _SearchPanel extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.08),
+              color: Colors.white.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(18),
             ),
             child: Text(
@@ -264,8 +233,7 @@ class _SectionHeader extends StatelessWidget {
   final String title;
   final String action;
   final VoidCallback onTap;
-  const _SectionHeader(
-      {required this.title, required this.action, required this.onTap});
+  const _SectionHeader({required this.title, required this.action, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -294,14 +262,10 @@ class _StatusRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tiles = [
-      _MetricTile(
-          'Active', '$activeCount', Icons.spa_outlined, AppColors.sprout),
-      _MetricTile(
-          'PHI Hold', '$phiCount', Icons.lock_clock_outlined, AppColors.glow),
-      _MetricTile('Ready', '$readyCount', Icons.inventory_2_outlined,
-          AppColors.harvest),
-      _MetricTile('Yield', '${totalYield.toStringAsFixed(1)}kg',
-          Icons.scale_outlined, AppColors.mint),
+      _MetricTile('Active', '$activeCount', Icons.spa_outlined, AppColors.sprout),
+      _MetricTile('PHI Hold', '$phiCount', Icons.lock_clock_outlined, AppColors.glow),
+      _MetricTile('Ready', '$readyCount', Icons.inventory_2_outlined, AppColors.harvest),
+      _MetricTile('Yield', '${totalYield.toStringAsFixed(1)}kg', Icons.scale_outlined, AppColors.mint),
     ];
 
     return SizedBox(
@@ -349,22 +313,37 @@ class _JourneyCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const cards = [
-      _JourneyCardData(Icons.pin_drop_outlined, 'Farmer',
-          'Create a geotagged crop batch and keep water, weather, pest, and harvest records together.'),
-      _JourneyCardData(Icons.qr_code_scanner_outlined, 'Shopper',
-          'Scan the package code and confirm where the produce came from before buying.'),
-      _JourneyCardData(Icons.restaurant_menu_outlined, 'Chef',
-          'Verify freshness, source, and certification before serving a dish.'),
-      _JourneyCardData(Icons.fitness_center_outlined, 'Diner',
-          'Open nutrition details connected to the scanned meal record.'),
+      _JourneyCardData(
+        Icons.pin_drop_outlined, 
+        'Farmer',
+        'Create a geotagged crop batch and keep water, weather, pest, and harvest records together.',
+        'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400',
+      ),
+      _JourneyCardData(
+        Icons.qr_code_scanner_outlined, 
+        'Shopper',
+        'Scan the package code and confirm where the produce came from before buying.',
+        'https://images.unsplash.com/photo-1543083569-8f55c252f225?auto=format&fit=crop&q=80&w=400',
+      ),
+      _JourneyCardData(
+        Icons.restaurant_menu_outlined, 
+        'Chef',
+        'Verify freshness, source, and certification before serving a dish.',
+        'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=400',
+      ),
+      _JourneyCardData(
+        Icons.fitness_center_outlined, 
+        'Diner',
+        'Open nutrition details connected to the scanned meal record.',
+        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400',
+      ),
     ];
 
     return SizedBox(
-      height: 190,
+      height: 220,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index) =>
-            _JourneyCard(data: cards[index], index: index),
+        itemBuilder: (_, index) => _JourneyCard(data: cards[index], index: index),
         separatorBuilder: (_, __) => const SizedBox(width: 12),
         itemCount: cards.length,
       ),
@@ -376,7 +355,8 @@ class _JourneyCardData {
   final IconData icon;
   final String title;
   final String body;
-  const _JourneyCardData(this.icon, this.title, this.body);
+  final String imageUrl;
+  const _JourneyCardData(this.icon, this.title, this.body, this.imageUrl);
 }
 
 class _JourneyCard extends StatelessWidget {
@@ -391,31 +371,75 @@ class _JourneyCard extends StatelessWidget {
       AppColors.harvest,
       AppColors.glow,
       AppColors.mint
-    ][index];
+    ][index % 4];
+    
     return Container(
-      width: 230,
-      padding: const EdgeInsets.all(16),
+      width: 240,
       decoration: _glowDecoration(accent: accent),
+      clipBehavior: Clip.antiAlias,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 44,
-            height: 44,
-            decoration: BoxDecoration(
-              color: accent.withOpacity(0.16),
-              borderRadius: BorderRadius.circular(16),
+          Expanded(
+            flex: 3,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Image.network(
+                    data.imageUrl,
+                    fit: BoxFit.cover,
+                    errorBuilder: (c, e, s) => Container(color: AppColors.panel),
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black54, Colors.transparent],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 10,
+                  left: 10,
+                  child: Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.6),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(data.icon, color: accent, size: 20),
+                  ),
+                ),
+              ],
             ),
-            child: Icon(data.icon, color: accent),
           ),
-          const Spacer(),
-          Text(data.title,
-              style: AppTextStyles.sans(16,
-                  color: Colors.white, weight: FontWeight.w800)),
-          const SizedBox(height: 6),
-          Text(data.body,
-              style:
-                  AppTextStyles.sans(12, color: Colors.white60, height: 1.25)),
+          Expanded(
+            flex: 4,
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data.title,
+                    style: AppTextStyles.sans(15, color: Colors.white, weight: FontWeight.w800),
+                  ),
+                  const SizedBox(height: 4),
+                  Expanded(
+                    child: Text(
+                      data.body,
+                      style: AppTextStyles.sans(11, color: Colors.white60, height: 1.3),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -423,11 +447,35 @@ class _JourneyCard extends StatelessWidget {
 }
 
 class _ActionGrid extends StatelessWidget {
-  final List<_DashboardAction> actions;
-  const _ActionGrid({required this.actions});
-
   @override
   Widget build(BuildContext context) {
+    final actions = [
+      const _DashboardActionData(
+        icon: Icons.add_location_alt_outlined,
+        title: 'New Batch',
+        subtitle: 'Crop, method, GPS plot',
+        route: '/farmer/batch/new',
+      ),
+      const _DashboardActionData(
+        icon: Icons.water_drop_outlined,
+        title: 'Irrigation',
+        subtitle: 'Water source & timing',
+        route: '/farmer/irrigate',
+      ),
+      const _DashboardActionData(
+        icon: Icons.bug_report_outlined,
+        title: 'Pest Check',
+        subtitle: 'Photo diagnosis & PHI',
+        route: '/farmer/pest',
+      ),
+      const _DashboardActionData(
+        icon: Icons.qr_code_2_outlined,
+        title: 'Harvest QR',
+        subtitle: 'Weights and labels',
+        route: '/farmer/harvest',
+      ),
+    ];
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -436,19 +484,19 @@ class _ActionGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
-        childAspectRatio: 1.2,
+        childAspectRatio: 1.3,
       ),
       itemBuilder: (_, index) => _ActionCard(action: actions[index]),
     );
   }
 }
 
-class _DashboardAction {
+class _DashboardActionData {
   final IconData icon;
   final String title;
   final String subtitle;
   final String route;
-  const _DashboardAction({
+  const _DashboardActionData({
     required this.icon,
     required this.title,
     required this.subtitle,
@@ -457,7 +505,7 @@ class _DashboardAction {
 }
 
 class _ActionCard extends StatelessWidget {
-  final _DashboardAction action;
+  final _DashboardActionData action;
   const _ActionCard({required this.action});
 
   @override
@@ -468,19 +516,24 @@ class _ActionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(22),
         onTap: () => context.push(action.route),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           decoration: _glowDecoration(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(action.icon, color: AppColors.sprout),
+              Icon(action.icon, color: AppColors.sprout, size: 22),
               const Spacer(),
-              Text(action.title,
-                  style: AppTextStyles.sans(15,
-                      color: Colors.white, weight: FontWeight.w800)),
-              const SizedBox(height: 4),
-              Text(action.subtitle,
-                  style: AppTextStyles.sans(11, color: Colors.white54)),
+              Text(
+                action.title,
+                style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                action.subtitle,
+                style: AppTextStyles.sans(10, color: Colors.white54),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ),
         ),
@@ -521,12 +574,15 @@ class _BatchCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(batch.cropName,
-                    style: AppTextStyles.sans(16,
-                        color: Colors.white, weight: FontWeight.w800)),
+                Text(
+                  batch.cropName,
+                  style: AppTextStyles.sans(16, color: Colors.white, weight: FontWeight.w800),
+                ),
                 const SizedBox(height: 3),
-                Text('${batch.variety} • ${batch.farmingMethod.label}',
-                    style: AppTextStyles.sans(11, color: Colors.white54)),
+                Text(
+                  '${batch.variety} • ${batch.farmingMethod.label}',
+                  style: AppTextStyles.sans(11, color: Colors.white54),
+                ),
                 const SizedBox(height: 10),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(999),
@@ -589,12 +645,15 @@ class _AlertPanel extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title,
-                    style: AppTextStyles.sans(14,
-                        color: Colors.white, weight: FontWeight.w800)),
+                Text(
+                  title,
+                  style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
+                ),
                 const SizedBox(height: 4),
-                Text(message,
-                    style: AppTextStyles.sans(12, color: Colors.white60)),
+                Text(
+                  message,
+                  style: AppTextStyles.sans(12, color: Colors.white60),
+                ),
               ],
             ),
           ),
@@ -614,11 +673,9 @@ class _EmptyBatches extends StatelessWidget {
       decoration: _glowDecoration(accent: AppColors.sprout),
       child: Column(
         children: [
-          const Icon(Icons.add_location_alt_outlined,
-              color: AppColors.sprout, size: 42),
+          const Icon(Icons.add_location_alt_outlined, color: AppColors.sprout, size: 42),
           const SizedBox(height: 14),
-          Text('No crop batches yet',
-              style: AppTextStyles.serif(22, color: Colors.white)),
+          Text('No crop batches yet', style: AppTextStyles.serif(22, color: Colors.white)),
           const SizedBox(height: 8),
           Text(
             'Create the first batch to begin recording plot, irrigation, pest, harvest, and QR trace data.',
@@ -647,7 +704,7 @@ class _GlassButton extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.08),
+            color: Colors.white.withValues(alpha: 0.08),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.white12),
           ),
@@ -662,15 +719,15 @@ BoxDecoration _glowDecoration({Color accent = AppColors.glow}) {
   return BoxDecoration(
     color: AppColors.charcoal,
     borderRadius: BorderRadius.circular(24),
-    border: Border.all(color: accent.withOpacity(0.28)),
+    border: Border.all(color: accent.withValues(alpha: 0.28)),
     boxShadow: [
       BoxShadow(
-        color: accent.withOpacity(0.16),
+        color: accent.withValues(alpha: 0.16),
         blurRadius: 22,
         spreadRadius: 1,
       ),
       BoxShadow(
-        color: Colors.black.withOpacity(0.34),
+        color: Colors.black.withValues(alpha: 0.34),
         blurRadius: 20,
         offset: const Offset(0, 12),
       ),

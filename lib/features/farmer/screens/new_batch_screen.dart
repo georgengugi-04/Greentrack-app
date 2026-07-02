@@ -49,7 +49,7 @@ class _NewBatchScreenState extends ConsumerState<NewBatchScreen> {
             decoration: BoxDecoration(
                 color: AppColors.mist,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.leaf.withOpacity(0.3))),
+                border: Border.all(color: AppColors.leaf.withValues(alpha: 0.3))),
             child: Row(children: [
               const Icon(Icons.location_on_outlined,
                   color: AppColors.leaf, size: 22),
@@ -100,7 +100,7 @@ class _NewBatchScreenState extends ConsumerState<NewBatchScreen> {
           _label('Farming Method *'),
           const SizedBox(height: 6),
           DropdownButtonFormField<FarmingMethod>(
-              value: _method,
+              initialValue: _method,
               decoration: const InputDecoration(),
               items: FarmingMethod.values
                   .map((m) => DropdownMenuItem(value: m, child: Text(m.label)))
@@ -195,10 +195,11 @@ class _NewBatchScreenState extends ConsumerState<NewBatchScreen> {
       _lat = -1.2921;
       _lng = 36.8219;
     });
-    if (mounted)
+    if (mounted) {
       _locationCtrl.text.isEmpty
           ? _locationCtrl.text = 'Nairobi County Plot'
           : null;
+    }
   }
 
   Future<void> _save() async {

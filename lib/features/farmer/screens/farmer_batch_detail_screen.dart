@@ -81,7 +81,7 @@ class _OverviewTab extends StatelessWidget {
         if (batch.harvestedAt != null) _InfoTile('Harvested', _fmt(batch.harvestedAt!)),
         if (batch.verifiedWeightKg != null)
           _InfoTile('Weight', '${batch.verifiedWeightKg} kg'),
-        if (batch.organicCertified) _InfoTile('Organic', 'Certified ✓'),
+        if (batch.organicCertified) const _InfoTile('Organic', 'Certified ✓'),
         const SizedBox(height: AppSpacing.md),
         ElevatedButton.icon(
           icon: const Icon(Icons.qr_code),
@@ -238,8 +238,8 @@ class _PHITab extends StatelessWidget {
             padding: const EdgeInsets.all(AppSpacing.lg),
             decoration: BoxDecoration(
               color: locked
-                  ? AppColors.error.withOpacity(0.08)
-                  : AppColors.leaf.withOpacity(0.1),
+                  ? AppColors.error.withValues(alpha: 0.08)
+                  : AppColors.leaf.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(AppRadius.lg),
             ),
             child: Column(

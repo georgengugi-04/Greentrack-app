@@ -107,7 +107,7 @@ class _IrrigationScreenState extends ConsumerState<IrrigationScreen> {
         Text('Water source', style: Theme.of(context).textTheme.labelMedium),
         const SizedBox(height: 6),
         DropdownButtonFormField<WaterSource>(
-            value: _source,
+            initialValue: _source,
             decoration: const InputDecoration(),
             items: WaterSource.values
                 .map((s) => DropdownMenuItem(value: s, child: Text(s.label)))
@@ -119,7 +119,7 @@ class _IrrigationScreenState extends ConsumerState<IrrigationScreen> {
             style: Theme.of(context).textTheme.labelMedium),
         const SizedBox(height: 6),
         DropdownButtonFormField<String>(
-            value: _method,
+            initialValue: _method,
             decoration: const InputDecoration(),
             items: _methods
                 .map((m) => DropdownMenuItem(value: m, child: Text(m)))
