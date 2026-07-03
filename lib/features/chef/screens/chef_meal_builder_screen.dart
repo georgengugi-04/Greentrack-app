@@ -261,7 +261,11 @@ class _IngredientsStep extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
+<<<<<<< HEAD
               color: AppColors.chefAccent.withValues(alpha: 0.08),
+=======
+              color: AppColors.chefAccent.withOpacity(0.08),
+>>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
               borderRadius: BorderRadius.circular(AppRadius.md)),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text('Calculated Nutrition', style: AppTextStyles.label),
@@ -351,7 +355,11 @@ class _AllergenRow extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 6),
         decoration: BoxDecoration(
           color: state != _AllergenState.none
+<<<<<<< HEAD
               ? AppColors.error.withValues(alpha: 0.05)
+=======
+              ? AppColors.error.withOpacity(0.05)
+>>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
               : Colors.white,
           borderRadius: BorderRadius.circular(AppRadius.sm),
           border: Border.all(color: AppColors.border),
@@ -401,7 +409,11 @@ class _StateChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
+<<<<<<< HEAD
           color: active ? color.withValues(alpha: 0.15) : Colors.transparent,
+=======
+          color: active ? color.withOpacity(0.15) : Colors.transparent,
+>>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: active ? color : AppColors.border),
         ),

@@ -38,9 +38,15 @@ class _ScanPrompt extends StatelessWidget {
             Container(
               width: 200, height: 200,
               decoration: BoxDecoration(
+<<<<<<< HEAD
                 color: AppColors.chefAccent.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(AppRadius.lg),
                 border: Border.all(color: AppColors.chefAccent.withValues(alpha: 0.3), width: 2),
+=======
+                color: AppColors.chefAccent.withOpacity(0.08),
+                borderRadius: BorderRadius.circular(AppRadius.lg),
+                border: Border.all(color: AppColors.chefAccent.withOpacity(0.3), width: 2),
+>>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
               ),
               child: const Center(child: Icon(Icons.qr_code_scanner, size: 80, color: AppColors.chefAccent)),
             ),
@@ -72,7 +78,11 @@ class _VerificationResult extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(AppSpacing.md),
+<<<<<<< HEAD
           decoration: BoxDecoration(color: AppColors.leaf.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(AppRadius.md)),
+=======
+          decoration: BoxDecoration(color: AppColors.leaf.withOpacity(0.1), borderRadius: BorderRadius.circular(AppRadius.md)),
+>>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
           child: Row(children: [
             const Icon(Icons.verified, color: AppColors.leaf, size: 32),
             const SizedBox(width: AppSpacing.md),

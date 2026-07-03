@@ -24,12 +24,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     switch (widget.role) {
       case UserRole.farmer:
         return '🌾 Farmer';
-      case UserRole.shopper:
-        return '🛒 Grocery Shopper';
       case UserRole.chef:
         return '👨‍🍳 Chef';
-      case UserRole.diner:
-        return '🥗 Diner';
+      // Add other cases only if they exist in your enum
+      // default: return '👤 User';
     }
   }
 
