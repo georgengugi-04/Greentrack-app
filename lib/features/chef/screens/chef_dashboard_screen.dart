@@ -63,7 +63,7 @@ class _ChefDashboardScreenState extends ConsumerState<ChefDashboardScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.restaurant_menu), label: 'Meals'),
 =======
 class ChefDashboardScreen extends ConsumerWidget {
-  const ChefDashboardScreen({super.key});
+  ChefDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -43,7 +43,8 @@ class FarmerDashboard extends ConsumerWidget {
                     const SizedBox(height: 12),
                     _StatusRail(
                       activeCount: (batchesAsync.valueOrNull ?? [])
-                          .where((batch) => batch.status != CropBatchStatus.delivered)
+                          .where((batch) =>
+                              batch.status != CropBatchStatus.delivered)
                           .length,
                       phiCount: phiLocked.length,
                       readyCount: readyNow.length,
@@ -117,7 +118,8 @@ class FarmerDashboard extends ConsumerWidget {
                 ),
                 data: (batches) {
                   final active = batches
-                      .where((batch) => batch.status != CropBatchStatus.delivered)
+                      .where(
+                          (batch) => batch.status != CropBatchStatus.delivered)
                       .take(5)
                       .toList();
                   if (active.isEmpty) {
@@ -141,7 +143,8 @@ class FarmerDashboard extends ConsumerWidget {
         icon: const Icon(Icons.add_rounded),
         label: Text(
           'Start Batch',
-          style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
+          style: AppTextStyles.sans(14,
+              color: Colors.white, weight: FontWeight.w800),
         ),
       ),
     );
@@ -162,7 +165,8 @@ class _TopBar extends StatelessWidget {
             children: [
               Text(
                 'GreenTrack',
-                style: AppTextStyles.sans(13, color: AppColors.sprout, weight: FontWeight.w800),
+                style: AppTextStyles.sans(13,
+                    color: AppColors.sprout, weight: FontWeight.w800),
               ),
               const SizedBox(height: 4),
               Text(
@@ -233,7 +237,8 @@ class _SectionHeader extends StatelessWidget {
   final String title;
   final String action;
   final VoidCallback onTap;
-  const _SectionHeader({required this.title, required this.action, required this.onTap});
+  const _SectionHeader(
+      {required this.title, required this.action, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -262,10 +267,14 @@ class _StatusRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tiles = [
-      _MetricTile('Active', '$activeCount', Icons.spa_outlined, AppColors.sprout),
-      _MetricTile('PHI Hold', '$phiCount', Icons.lock_clock_outlined, AppColors.glow),
-      _MetricTile('Ready', '$readyCount', Icons.inventory_2_outlined, AppColors.harvest),
-      _MetricTile('Yield', '${totalYield.toStringAsFixed(1)}kg', Icons.scale_outlined, AppColors.mint),
+      _MetricTile(
+          'Active', '$activeCount', Icons.spa_outlined, AppColors.sprout),
+      _MetricTile(
+          'PHI Hold', '$phiCount', Icons.lock_clock_outlined, AppColors.glow),
+      _MetricTile('Ready', '$readyCount', Icons.inventory_2_outlined,
+          AppColors.harvest),
+      _MetricTile('Yield', '${totalYield.toStringAsFixed(1)}kg',
+          Icons.scale_outlined, AppColors.mint),
     ];
 
     return SizedBox(
@@ -314,25 +323,25 @@ class _JourneyCards extends StatelessWidget {
   Widget build(BuildContext context) {
     const cards = [
       _JourneyCardData(
-        Icons.pin_drop_outlined, 
+        Icons.pin_drop_outlined,
         'Farmer',
         'Create a geotagged crop batch and keep water, weather, pest, and harvest records together.',
         'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400',
       ),
       _JourneyCardData(
-        Icons.qr_code_scanner_outlined, 
+        Icons.qr_code_scanner_outlined,
         'Shopper',
         'Scan the package code and confirm where the produce came from before buying.',
         'https://images.unsplash.com/photo-1543083569-8f55c252f225?auto=format&fit=crop&q=80&w=400',
       ),
       _JourneyCardData(
-        Icons.restaurant_menu_outlined, 
+        Icons.restaurant_menu_outlined,
         'Chef',
         'Verify freshness, source, and certification before serving a dish.',
         'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=400',
       ),
       _JourneyCardData(
-        Icons.fitness_center_outlined, 
+        Icons.fitness_center_outlined,
         'Diner',
         'Open nutrition details connected to the scanned meal record.',
         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400',
@@ -343,7 +352,8 @@ class _JourneyCards extends StatelessWidget {
       height: 220,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index) => _JourneyCard(data: cards[index], index: index),
+        itemBuilder: (_, index) =>
+            _JourneyCard(data: cards[index], index: index),
         separatorBuilder: (_, __) => const SizedBox(width: 12),
         itemCount: cards.length,
       ),
@@ -372,7 +382,7 @@ class _JourneyCard extends StatelessWidget {
       AppColors.glow,
       AppColors.mint
     ][index % 4];
-    
+
     return Container(
       width: 240,
       decoration: _glowDecoration(accent: accent),
@@ -388,7 +398,8 @@ class _JourneyCard extends StatelessWidget {
                   child: Image.network(
                     data.imageUrl,
                     fit: BoxFit.cover,
-                    errorBuilder: (c, e, s) => Container(color: AppColors.panel),
+                    errorBuilder: (c, e, s) =>
+                        Container(color: AppColors.panel),
                   ),
                 ),
                 Container(
@@ -425,13 +436,15 @@ class _JourneyCard extends StatelessWidget {
                 children: [
                   Text(
                     data.title,
-                    style: AppTextStyles.sans(15, color: Colors.white, weight: FontWeight.w800),
+                    style: AppTextStyles.sans(15,
+                        color: Colors.white, weight: FontWeight.w800),
                   ),
                   const SizedBox(height: 4),
                   Expanded(
                     child: Text(
                       data.body,
-                      style: AppTextStyles.sans(11, color: Colors.white60, height: 1.3),
+                      style: AppTextStyles.sans(11,
+                          color: Colors.white60, height: 1.3),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -525,7 +538,8 @@ class _ActionCard extends StatelessWidget {
               const Spacer(),
               Text(
                 action.title,
-                style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
+                style: AppTextStyles.sans(14,
+                    color: Colors.white, weight: FontWeight.w800),
               ),
               const SizedBox(height: 2),
               Text(
@@ -549,7 +563,7 @@ class _BatchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final progress = (batch.daysInGround /
-            (batch.daysInGround + batch.daysToHarvest.clamp(1, 999)))
+            (batch.DaysinGround + batch.DaystoHarvest.clamp(1, 999)))
         .clamp(0.05, 1.0);
     return Container(
       padding: const EdgeInsets.all(16),
@@ -576,7 +590,8 @@ class _BatchCard extends StatelessWidget {
               children: [
                 Text(
                   batch.cropName,
-                  style: AppTextStyles.sans(16, color: Colors.white, weight: FontWeight.w800),
+                  style: AppTextStyles.sans(16,
+                      color: Colors.white, weight: FontWeight.w800),
                 ),
                 const SizedBox(height: 3),
                 Text(
@@ -647,7 +662,8 @@ class _AlertPanel extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyles.sans(14, color: Colors.white, weight: FontWeight.w800),
+                  style: AppTextStyles.sans(14,
+                      color: Colors.white, weight: FontWeight.w800),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -673,9 +689,11 @@ class _EmptyBatches extends StatelessWidget {
       decoration: _glowDecoration(accent: AppColors.sprout),
       child: Column(
         children: [
-          const Icon(Icons.add_location_alt_outlined, color: AppColors.sprout, size: 42),
+          const Icon(Icons.add_location_alt_outlined,
+              color: AppColors.sprout, size: 42),
           const SizedBox(height: 14),
-          Text('No crop batches yet', style: AppTextStyles.serif(22, color: Colors.white)),
+          Text('No crop batches yet',
+              style: AppTextStyles.serif(22, color: Colors.white)),
           const SizedBox(height: 8),
           Text(
             'Create the first batch to begin recording plot, irrigation, pest, harvest, and QR trace data.',

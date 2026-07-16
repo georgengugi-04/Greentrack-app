@@ -358,7 +358,7 @@ class _AllergenRow extends StatelessWidget {
 <<<<<<< HEAD
               ? AppColors.error.withValues(alpha: 0.05)
 =======
-              ? AppColors.error.withOpacity(0.05)
+              ? AppColors.error.withValues(alpha: 0.05)
 >>>>>>> 493c832d1fc8dc6ffa0d63c5c9a92f89984743ca
               : Colors.white,
           borderRadius: BorderRadius.circular(AppRadius.sm),
